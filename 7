@@ -1,0 +1,53 @@
+// 1
+#include <stdio.h>
+
+int main() {
+    char arr[] = {"понедельник","вторник","среда","четверг","пятница","суббота","воскресенье"};
+
+    enum week
+    {
+        пн = 0,
+        вт,
+        ср,
+        чт,
+        пт,
+        сб,
+        вс
+    };
+
+    enum week day;
+    day = пн;
+    printf("%s",&arr[day]);
+
+return 0;
+
+}
+
+
+//2
+#include <stdio.h>
+
+int main() {
+
+    struct square {
+        int x1;
+        int x2;
+        int y1;
+        int y2;
+
+    }sqr;
+
+    sqr.x1 = 5;
+    sqr.x2 = 0;
+    sqr.y1 = 3;
+    sqr.y2 = 0;
+    printf("Площадь прямоугольника - %d",((sqr.x1 - sqr.x2)*(sqr.y1 - sqr.y2)));
+    printf("\nПериметр прямоугольника - %d",2*(((sqr.x1 - sqr.x2)+(sqr.y1 - sqr.y2))));
+
+
+return 0;
+
+}
+
+
+//3
