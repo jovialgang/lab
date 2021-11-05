@@ -1,72 +1,45 @@
-// 1
+
 #include <stdio.h>
 
-int main() {
-    char arr[] = {"понедельник","вторник","среда","четверг","пятница","суббота","воскресенье"};
-
-    enum week
-    {
-        пн = 0,
-        вт,
-        ср,
-        чт,
-        пт,
-        сб,
-        вс
-    };
-
-    enum week day;
-    day = пн;
-    printf("%s",&arr[day]);
-
-return 0;
-
+struct square
+{
+    int lenght;
+};
+int First(int lengh)
+{
+    return lengh*lengh;
+}
+int Second(int lengh)
+{
+    return lengh*4;
 }
 
-
-//2
-#include <stdio.h>
+struct mp3
+{
+    unsigned play : 1;
+    unsigned pouse : 1;
+    unsigned record : 1;
+};
 
 int main() {
+    enum day {Monday, Tuesday, Wednesday, Thursday};
+    enum day Day;
+    Day = Monday;
+    printf("День: %d\n\n", Day+1);
 
-    struct square {
-        int x1;
-        int x2;
-        int y1;
-        int y2;
+    struct square Square = {10};
+    int second = Second(Square.lenght);
+    int first = First(Square.lenght);
+    printf("Периметр: %d\n", second);
+    printf("Прощадь: %d\n\n", first);
 
-    }sqr;
-
-    sqr.x1 = 5;
-    sqr.x2 = 0;
-    sqr.y1 = 3;
-    sqr.y2 = 0;
-    printf("Площадь прямоугольника - %d",((sqr.x1 - sqr.x2)*(sqr.y1 - sqr.y2)));
-    printf("\nПериметр прямоугольника - %d",2*(((sqr.x1 - sqr.x2)+(sqr.y1 - sqr.y2))));
-
-
-return 0;
-
+    union number{
+        struct mp3 myMp3;
+        int num;
+    }reader;
+    scanf("%x", &reader.num);
+    printf("Если плеер играет, то 1, если нет, то 0: %u\n", reader.myMp3.play);
+    printf("Если стоит пауза, то 1, если нет, то 0: %u\n", reader.myMp3.pouse);
+    printf("Если идёт запись, то 1, если нет, то 0: %u\n", reader.myMp3.record);
+    return 0;
 }
-
-
-//3
-#include <stdio.h>
-
-int main() {
-
-//    int go;
-//    scanf("%o", go);
-
-    struct device {
-        unsigned play;
-        unsigned pouse;
-        unsigned record;
-    } mp3;
-
-    mp3.play = 1;
-    mp3.pouse = 0;
-    mp3.record = 0;
-    printf("Если плеер играет, то 1, если нет, то 0\n - %d",(mp3.play));
-    printf("\nЕсли стоит пауза, то 1, если нет, то 0\n - %d",(mp3.pouse));
-    printf("\nЕсли идёт запись, то 1, если нет, то 0\n - %d",(mp3.record));
